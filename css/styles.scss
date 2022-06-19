@@ -125,6 +125,15 @@ body {
   .navbar-container {
     display: none;
   }
+
+  .hidable {
+    display: none;
+  }
+
+  .menu__stretch {
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 @media (min-width: 768px) {
@@ -138,6 +147,10 @@ body {
 
   .navbar__account {
     margin-right: 1rem;
+  }
+
+  .menu__stretch {
+    align-items: center;
   }
 }
 
