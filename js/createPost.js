@@ -26,9 +26,10 @@ document.getElementById("save_btn").addEventListener("click", () => {
     postUrlCoverImage === "" ||
     postAuthor === "" ||
     postMinToRead === "" ||
-    postAvatarAuthor === ""
+    postAvatarAuthor === "" ||
+    isNaN(postMinToRead)
   ) {
-    alert("Hay campos vacíos, favor de revisar.");
+    alert("Hay campos vacíos ó erróneos, favor de revisar.");
   } else {
     let today = new Date();
     let date =
@@ -36,7 +37,11 @@ document.getElementById("save_btn").addEventListener("click", () => {
       "-" +
       (today.getMonth() + 1) +
       "-" +
-      today.getDate();
+      today.getDate() +
+      " " +
+      today.getHours() +
+      ":" +
+      today.getMinutes();
 
     let post = {
       title: postTitle,
