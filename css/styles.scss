@@ -114,6 +114,16 @@ body {
   }
 }
 
+.link-title {
+  text-decoration: none;
+  color: black;
+}
+
+.card-text {
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 767px) {
   .offcanvas {
