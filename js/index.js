@@ -11,104 +11,104 @@ let post = {
 }
 */
 const getFormattedDate = (postOriginalDate) => {
-    let currentDate = new Date();
-    let postDate = new Date(postOriginalDate);
-    //let monthShortNameList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    let printDate = "";
-  
-    if (
-      currentDate.getFullYear() != postDate.getFullYear() ||
-      currentDate.getMonth() != postDate.getMonth() ||
-      currentDate.getDate() != postDate.getDate()
-    ) {
-      //printDate = `${monthShortNameList[postDate.getMonth()]} ${postDate.getDay()} '${}`
-      printDate = `${postDate.toLocaleString("en-US", {
-        month: "short",
-      })} ${postDate.getDate()} '${postDate.getFullYear().toString().slice(-2)}`;
-    } else {
-      printDate = `${postDate.toLocaleString("en-US", {
-        month: "short",
-      })} ${postDate.getDate()} (${
-        currentDate.getHours() != postDate.getHours()
-          ? currentDate.getHours() - postDate.getHours() + " hour(s) ago"
-          : currentDate.getMinutes() - postDate.getMinutes() + " minute(s) ago"
-      })`;
-    }
-  
-    return printDate;
-  };
-  
-  const getTagsList = (listOfTags) => {
-    let formattedTags = "";
-    if (getTagsList) {
-      let tagsArray = listOfTags.split(",");
-  
-      formattedTags = tagsArray.reduce((tagsList, currentTag) => {
-        tagsList += `#${currentTag} `;
-  
-        return tagsList;
-      }, "");
-    }
-  
-    return formattedTags;
-  };
-  
-  document.addEventListener("DOMContentLoaded", () => {
-    fetch("https://devto-clone-team3-default-rtdb.firebaseio.com/posts/.json", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
+  let currentDate = new Date();
+  let postDate = new Date(postOriginalDate);
+  //let monthShortNameList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+  let printDate = "";
+
+  if (
+    currentDate.getFullYear() != postDate.getFullYear() ||
+    currentDate.getMonth() != postDate.getMonth() ||
+    currentDate.getDate() != postDate.getDate()
+  ) {
+    //printDate = `${monthShortNameList[postDate.getMonth()]} ${postDate.getDay()} '${}`
+    printDate = `${postDate.toLocaleString("en-US", {
+      month: "short",
+    })} ${postDate.getDate()} '${postDate.getFullYear().toString().slice(-2)}`;
+  } else {
+    printDate = `${postDate.toLocaleString("en-US", {
+      month: "short",
+    })} ${postDate.getDate()} (${
+      currentDate.getHours() != postDate.getHours()
+        ? currentDate.getHours() - postDate.getHours() + " hour(s) ago"
+        : currentDate.getMinutes() - postDate.getMinutes() + " minute(s) ago"
+    })`;
+  }
+
+  return printDate;
+};
+
+const getTagsList = (listOfTags) => {
+  let formattedTags = "";
+  if (getTagsList) {
+    let tagsArray = listOfTags.split(",");
+
+    formattedTags = tagsArray.reduce((tagsList, currentTag) => {
+      tagsList += `#${currentTag} `;
+
+      return tagsList;
+    }, "");
+  }
+
+  return formattedTags;
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("https://devto-clone-team3-default-rtdb.firebaseio.com/posts/.json", {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        let err = new Error(
+          `Algo salio mal, status: ${response.status} ${response.statusText} type: ${response.type}`
+        );
+        throw err;
+      } else {
+        return response.json();
+      }
     })
-      .then((response) => {
-        if (!response.ok) {
-          let err = new Error(
-            `Algo salio mal, status: ${response.status} ${response.statusText} type: ${response.type}`
-          );
-          throw err;
-        } else {
-          return response.json();
-        }
-      })
-      .then((posts) => {
-        let postsLayout = "";
-        let relevantPostsSection = document.getElementById("relevant");
-        let latestPostsSection = document.getElementById("latest");
-        let topPostsSection = document.getElementById("top");
-  
-        for (post in posts) {
-          let printDate = getFormattedDate(posts[post].createdDate);
-          let tagsList = getTagsList(posts[post].tags);
-  
-          postsLayout += `
-              <div class="card mb-3">
-                  <div class="card-header bg-white border-0">
-                      <div class="row">
-                          <div class="col-2">
-                              <img src="${posts[post].avatarAuthor}" class="rounded-circle img-thumbnail" alt="...">
-                          </div>
-                          <div class="col-10">
-                              <p class="card-text">${posts[post].author}</p>
-                              <p class="card-text "><small class="text-muted">${printDate}</small></p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="card-body">
-                      <h5 class="card-title text-center"><a href="/viewPost.html?postId=${post}" class="link-title">${posts[post].title}</a></h5>
-                      <p class="card-text text-center"><small class="text-muted">${tagsList}</small></p>
-                  </div>
-                  <div class="card-footer bg-white border-0">
-                      <p class="card-text text-end"><small class="text-muted">${posts[post].mintoread} min read</small></p>
-                  </div>
-              </div>
-          `;
-        }
-  
-        relevantPostsSection.innerHTML = postsLayout;
-        latestPostsSection.innerHTML = postsLayout;
-        topPostsSection.innerHTML = postsLayout;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
+    .then((posts) => {
+      let postsLayout = "";
+      let relevantPostsSection = document.getElementById("relevant");
+      let latestPostsSection = document.getElementById("latest");
+      let topPostsSection = document.getElementById("top");
+
+      for (post in posts) {
+        let printDate = getFormattedDate(posts[post].createdDate);
+        let tagsList = getTagsList(posts[post].tags);
+
+        postsLayout += `
+            <div class="card mb-3">
+                <div class="card-header bg-white border-0">
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="${posts[post].avatarAuthor}" class="rounded-circle img-thumbnail" alt="...">
+                        </div>
+                        <div class="col-10">
+                            <p class="card-text">${posts[post].author}</p>
+                            <p class="card-text "><small class="text-muted">${printDate}</small></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center"><a href="/viewPost.html?postId=${post}" class="link-title">${posts[post].title}</a></h5>
+                    <p class="card-text text-center"><small class="text-muted">${tagsList}</small></p>
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <p class="card-text text-end"><small class="text-muted">${posts[post].mintoread} min read</small></p>
+                </div>
+            </div>
+        `;
+      }
+
+      relevantPostsSection.innerHTML = postsLayout;
+      latestPostsSection.innerHTML = postsLayout;
+      topPostsSection.innerHTML = postsLayout;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
