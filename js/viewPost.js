@@ -16,24 +16,11 @@ const getFormattedDate = (postOriginalDate) => {
     //let monthShortNameList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     let printDate = "";
   
-    if (
-      currentDate.getFullYear() != postDate.getFullYear() ||
-      currentDate.getMonth() != postDate.getMonth() ||
-      currentDate.getDate() != postDate.getDate()
-    ) {
-      //printDate = `${monthShortNameList[postDate.getMonth()]} ${postDate.getDay()} '${}`
-      printDate = `${postDate.toLocaleString("en-US", {
+    printDate = `Posted on ${postDate.getDate()} ${postDate
+      .toLocaleString("en-US", {
         month: "short",
-      })} ${postDate.getDate()} '${postDate.getFullYear().toString().slice(-2)}`;
-    } else {
-      printDate = `${postDate.toLocaleString("en-US", {
-        month: "short",
-      })} ${postDate.getDate()} (${
-        currentDate.getHours() != postDate.getHours()
-          ? currentDate.getHours() - postDate.getHours() + " hour(s) ago"
-          : currentDate.getMinutes() - postDate.getMinutes() + " minute(s) ago"
-      })`;
-    }
+      })
+      .toLowerCase()}`;
   
     return printDate;
   };
@@ -54,7 +41,10 @@ const getFormattedDate = (postOriginalDate) => {
   };
   
   document.addEventListener("DOMContentLoaded", () => {
-    fetch("https://devto-clone-team3-default-rtdb.firebaseio.com/posts/.json", {
+    let postId = window.location.search.substring(8);
+    let postUrl = `https://devto-clone-team3-default-rtdb.firebaseio.com/posts/${postId}.json`;
+  
+    fetch(postUrl, {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -70,43 +60,35 @@ const getFormattedDate = (postOriginalDate) => {
           return response.json();
         }
       })
-      .then((posts) => {
+      .then((post) => {
         let postsLayout = "";
-        let relevantPostsSection = document.getElementById("relevant");
-        let latestPostsSection = document.getElementById("latest");
-        let topPostsSection = document.getElementById("top");
+        let relevantPostsSection = document.getElementById("postBody");
+        let printDate = getFormattedDate(post.createdDate);
+        let tagList = getTagsList(post.tags);
   
-        for (post in posts) {
-          let printDate = getFormattedDate(posts[post].createdDate);
-          let tagsList = getTagsList(posts[post].tags);
-  
-          postsLayout += `
+        postsLayout = `
               <div class="card mb-3">
-                  <div class="card-header bg-white border-0">
+                  <img src="${post.urlCoverImage}" class="card-img-top" alt="...">
+                  <div class="card-header bg-white border-0 ms-3">
                       <div class="row">
                           <div class="col-2">
-                              <img src="${posts[post].avatarAuthor}" class="rounded-circle img-thumbnail" alt="...">
+                              <img src="${post.avatarAuthor}" class="rounded-circle img-thumbnail" alt="...">
                           </div>
                           <div class="col-10">
-                              <p class="card-text">${posts[post].author}</p>
-                              <p class="card-text "><small class="text-muted">${printDate}</small></p>
+                              <p class="card-text">${post.author}</p>
+                              <p class="card-text"><small class="text-muted">${printDate}</small></p>
                           </div>
                       </div>
                   </div>
-                  <div class="card-body">
-                      <h5 class="card-title text-center"><a href="/viewPost.html?postId=${post}" class="link-title">${posts[post].title}</a></h5>
-                      <p class="card-text text-center"><small class="text-muted">${tagsList}</small></p>
-                  </div>
-                  <div class="card-footer bg-white border-0">
-                      <p class="card-text text-end"><small class="text-muted">${posts[post].mintoread} min read</small></p>
+                  <div class="card-body ms-3">
+                      <h1 class="card-title">${post.title}</h1>
+                      <p class="card-text mb-3"><small class="text-muted">${tagList}</small></p>
+                      <p class="card-text">${post.content}</p>
                   </div>
               </div>
-          `;
-        }
+        `;
   
         relevantPostsSection.innerHTML = postsLayout;
-        latestPostsSection.innerHTML = postsLayout;
-        topPostsSection.innerHTML = postsLayout;
       })
       .catch((err) => {
         console.log(err);
