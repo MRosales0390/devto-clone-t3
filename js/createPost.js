@@ -1,15 +1,3 @@
-/*
- let post = {
-    title: 'titulo del post',
-    content: 'contenido del post ....',
-    tags: 'lorem, lorem, lorem',
-    urlCoverImage: 'https://res.cloudinary.com/practicaldev/image/fetch/s--f9PeJcAd--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/52ohyn4pzhpehxxq2s55.jpg',
-    author: 'Cris',
-    createdDate: '2022-06-16',
-    mintoread: 3,
-    avatarAuthor: 'https://res.cloudinary.com/practicaldev/image/fetch/s--3xRt7osW--/c_fill,f_auto,fl_progressive,h_320,q_auto,w_320/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/395121/4dd73e99-88c7-4886-b485-cd246beaaf92.jpg'
-}
- */
 document.getElementById("save_btn").addEventListener("click", () => {
   let postTitle = document.getElementById("title").value;
   let postContent = document.getElementById("content").value;
@@ -53,6 +41,7 @@ document.getElementById("save_btn").addEventListener("click", () => {
       mintoread: postMinToRead,
       avatarAuthor: postAvatarAuthor,
     };
+
 
     fetch("https://devto-clone-team3-default-rtdb.firebaseio.com/posts/.json", {
       method: "POST",
