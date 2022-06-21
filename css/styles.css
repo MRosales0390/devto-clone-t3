@@ -1,4 +1,4 @@
-
+* {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -29,9 +29,7 @@ body {
 
 .navbar h2,
 .navbar-content h2 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
- Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
- "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: 700;
   line-height: 1.25;
   font-size: 1.125rem;
@@ -201,6 +199,58 @@ body {
   font-weight: 600;
 }
 
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 2px solid #d6d6d7;
+  border-radius: 5px !important;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.btn-custom-upload {
+  border: 2px solid #d6d6d7;
+  border-radius: 5px !important;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: transparent;
+  color: black;
+}
+
+.hidden {
+  display: none;
+}
+
+.big-text-input {
+  font-weight: 700;
+  font-size: xx-large;
+}
+
+.no-border-focus:focus {
+  outline: 0 !important;
+}
+
+.custom-blue-btn {
+  background-color: #3b49df;
+  font-weight: 500;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  max-width: 95px;
+  height: 40px;
+}
+
+.custom-blue-btn:hover {
+  background-color: #2f3ab2;
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 767px) {
   .offcanvas {
@@ -248,4 +298,4 @@ body {
     margin-right: 0.5rem;
   }
 }
-/*# sourceMappingURL=styles.css.map 
+/*# sourceMappingURL=styles.css.map */

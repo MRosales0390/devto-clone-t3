@@ -20,15 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then((post) => {
       let postForm = document.getElementById("postForm");
-      console.log(postForm);
+      console.log(post);
 
-      postForm[0].value = post.title;
-      postForm[1].value = post.content;
-      postForm[2].value = post.tags;
-      postForm[3].value = post.urlCoverImage;
-      postForm[4].value = post.author;
-      postForm[5].value = post.mintoread;
-      postForm[6].value = post.avatarAuthor;
+      postForm["title"].value = post.title;
+      postForm["content"].value = post.content;
+      postForm["tags"].value = post.tags;
+      postForm["urlCoverImage"].value = post.urlCoverImage;
+      postForm["author"].value = post.author;
+      postForm["minToRead"].value = post.mintoread;
+      postForm["avatarAuthor"].value = post.avatarAuthor;
+      postForm["cancel_btn"].setAttribute(
+        "onclick",
+        `window.location.href='./viewPost.html?postId=${postId}'`
+      );
     })
     .catch((err) => {
       console.log(err);
@@ -87,7 +91,9 @@ document.getElementById("save_btn").addEventListener("click", () => {
         }
       })
       .then((finalResponse) => {
-        alert(`Post con el id ${finalResponse.name} modificado exitosamente`);
+        //console.log(finalResponse);
+        alert(`Post con el id ${postId} modificado exitosamente`);
+        window.location.replace(`/viewPost.html?postId=${postId}`);
       })
       .catch((err) => {
         console.log(err);
@@ -114,9 +120,13 @@ document.getElementById("delete_btn").addEventListener("click", () => {
     })
     .then((finalResponse) => {
       window.location.pathname = "/index.html";
-      alert(`Post con el id ${finalResponse.name} eliminado exitosamente`);
+      //alert(`Post con el id ${finalResponse.name} eliminado exitosamente`);
     })
     .catch((err) => {
       console.log(err);
     });
+});
+
+document.getElementById("btn_urlCoverImage").addEventListener("click", () => {
+  document.getElementById("urlCoverImage").classList.toggle("hidden");
 });
