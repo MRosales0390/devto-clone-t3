@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEV Community</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="row bg-white">
+        <!-- Inicio Marco -->
+        <div class="d-flex align-items-center col-md-1 col-sm-1">
+            <aside class="offcanvas-container">      
+                <nav class="navbar navbar-expand-lg navbar-light bg-transparent main-navigation" id="main-menu">
+                    <div class="container-fluid">
+                        <button
+                            class="navbar-toggler border border-0"
+                            type="button"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasMainMenu"
+                            aria-controls="offcanvasMainMenu"
+                            aria-expanded="false"
+                            aria-label="Close"
+                        >
+                            <!--<span class="navbar-toggler-icon"></span>-->
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <div
+                            class="offcanvas offcanvas-start"
+                            tabindex="-1"
+                            id="offcanvasMainMenu"
+                            aria-labelledby="offcanvasMainMenuLabel"
+                        >
+                            <div class="offcanvas-header">
+                                <h2 class="offcanvas-title" id="offcanvasMainMenuLabel">
+                                    DEV Community
+                                </h2>
+                                <button
+                                    type="button"
+                                    class="btn-close text-reset"
+                                    data-bs-dismiss="offcanvas"
+                                    aria-label="Close">
+                                    <!--<img class="btn-close" src="./img/close-icon.svg" alt="">-->
+                                </button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div class="navbar__account">
+                                    <h2 class="brand__title mb-4">
+                                        <a class="brand__link" href="/">DEV Community</a>
+                                        is a community of 839,917 amazing developers
+                                    </h2>
+                                    <p class="brand__text mb-4">We're a place where coders share, stay up-to-date and grow their careers.</p>
+                                    <div class="account__links">
+                                        <a href="/" class="account__anchor mb-1">Create account</a>
+                                        <a href="/" class="account__anchor-simple">Log in</a>
+                                    </div>
+                                </div>
+                                <div class="navbar__elements">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link">
+                                            <img src="/img/home-icon.svg" /> Home
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link ">
+                                            <img src="/img/list-icon.svg" /> Listings
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link ">
+                                            <img src="/img/mic-icon.svg" /> Podcasts
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link ">
+                                            <img src="/img/camera-icon.svg" /> Videos
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link ">
+                                            <img src="/img/tag-icon.svg" /> Tags
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link ">
+                                            <img src="/img/light-bulb-icon.svg" /> FAQ
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link ">
+                                            <img src="/img/bags-icon.svg" /> Forem Shop
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link ">
+                                            <img src="/img/heart-icon.svg" /> Sponsors
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link ">
+                                            <img src="/img/dev-icon.svg" /> About
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link ">
+                                            <img src="/img/trumpet-icon.svg" /> Contact
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h2 class="offcanvas-subtitle">Other</h2>
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link ">
+                                            <img src="/img/thumbs-up-icon.svg" /> Code of Conduct
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link ">
+                                            <img src="/img/nerdy-face-icon.svg" /> Privacy Policy
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link ">
+                                            <img src="/img/beautiful-eyes-icon.svg" /> Terms of use
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="flex justify-start mb-4 mt-4 navbar__networks">
+                                    <a href="/" class="networks-icon">
+                                        <img class="networks-icon" src="/img/twitter-icon.svg" />
+                                    </a>
+                                    <a href="/" class="networks-icon">
+                                        <img
+                                        class="networks-icon"
+                                        src="/img/facebook-icon.svg"
+                                        />
+                                    <a href="/" class="networks-icon">
+                                        <img class="networks-icon" src="/img/github-icon.svg" />
+                                    </a>
+                                    <a href="/" class="networks-icon">
+                                        <img
+                                        class="networks-icon"
+                                        src="/img/instagram-icon.svg"
+                                        />
+                                    </a>
+                                    <a href="/" class="networks-icon">
+                                        <img class="networks-icon" src="/img/twitch-icon.svg" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--offcanvas-->
+                    </div>
+                    <!--container-fluid-->
+                </nav>
+            </aside>
+        </div>
+        <div class="d-flex align-items-center col-md-11 col-sm-11">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent col-12">
+                <div class="container-fluid">
+                    <div class="d-flex col-md-9 col-sm-9 menu__stretch">
+                        <a class="navbar-brand" href="/index.html">
+                            <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" alt="DEV Community" width="50" height="40">
+                        </a>
+                        <button class="navbar-toggler border border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="input-group">
+                                <input class="form-control bg-white border border-end-0 rounded-start" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-secondary bg-white border border-start-0 rounded-end" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center col-md-3 col-sm-3">
+                        <div class="account__links hidable">
+                            <a href="/" class="account__anchor-simple mb-1">Log in</a>
+                        </div>
+                        <div class="account__links">
+                            <a href="/" class="account__anchor mb-1">Create account</a>
+                        </div>
+                    </div> 
+                </div>
+            </nav>
+        </div>       
+    </div>
+<!-- Inicio Annie -->
+    <main class="container">
+        <section class="row">
+            <aside class="col-md-4 col-lg-1 d-sm-none d-md-block">                
+                <div class="offcanvas-body">                   
+                    <div class="navbar__elements">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">
+                                <img src="/img/heart-icon.svg" />16
+                                </a>
+                            <li class="nav-item">
+                                <a href="/" class="nav-link ">
+                                <img src="/img/camera-icon.svg" />8
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/" class="nav-link ">
+                                <img src="/img/tag-icon.svg" />5
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/" class="nav-link ">...
+                                </a>
+                            </li>
+                            
+                        </ul>
+            </aside>
+            <div class="col-8" id="postBody">
+            </div>
+            <aside class="col-lg-3 d-none d-lg-block">
+                                <div class="card card__annie-card-app mb-4">
+                    <div class="card" style="width: 100%">
+                            <div class="card-body">
+                                <h5 class="card-title">Ben Halpern</h5>
+                                <a href="https://dev.to/listings" clas="btn" style="width: 100%" card-aside-right>Follow</a>
+                            </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" class="flex justify-content-start">
+                                        <a href="https://dev.to/ffex/day-0-brainstorming-3po" class="btn" style="width: 100">A Canadian software developer who thinks he’s funny. He/Him.</a>
+                                    </li>
+                                    <li class="list-group-item" class="d-flex justify-content-start">
+                                        <a href="https://dev.to/joysankar2001/watery-a-water-delivery-solution-android-app-3ep9"
+                                class="btn" style="width: 100%;">LOCATION NY</a>
+                                    </li>
+                                    <li class="list-group-item" class="d-flex justify-content-start">
+                                        <a href="https://dev.to/b14cknc0d3/devbook-social-medial-app-build-with-flutter-and-appwrite--14jo"
+                                class="btn" style="width: 100%;">EDUCATION Mount Allison University</a>
+                                    </li>
+                                    <li class="list-group-item" class="d-flex justify-content-start">
+                                        <a href="https://dev.to/rohitraje786/import-csv-to-appwrite-database-1h71" class="btn"
+                                style="width: 100%;">WORK Co-founder at Forem</a>
+                                    </li>
+                                    <li class="list-group-item" class="d-flex justify-content-start">
+                                        <a href="https://dev.to/fathidevs/day-3-still-uibottom-navigation-bar-custom-m7h" class="btn"
+                                style="width: 100%;">Frontend developer ready for some summer works</a>
+                                    </li>
+                                <li class="list-group-item" class="flex justify-content-start">
+                                    <a href="https://dev.to/listings/education/recomend-typescript-books-2l90" class="btn"
+                                style="width: 100">JOINED Dec 26, 2015</a>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+                <div class="card card__annie-card-help mb-4">
+                    <div class="card" style="width: 100%">
+                        <div class="card-body">
+                            <h5 class="card-title">More from
+                                <a href="https://dev.to/t/help" class="">Ben Halpern</a>
+                            </h5>
+                        </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" class="flex justify-content-start">
+                                    <a href="https://dev.to/hugohamelcom/appsumo-keyword-ranking-tool-2mm0" class="btn"
+                                style="width: 100">Side Project Sunday! What do you have going on?
+                                    <h5>#discuss #watercooler #showdev #sideprojects</a> </h5>
+                                </li>
+                                <li class="list-group-item" class="d-flex justify-content-start">
+                                    <a href="https://dev.to/hugohamelcom/appsumo-keyword-ranking-tool-2mm0" class="btn"
+                                style="width: 100%;">Meme Monday! 
+                                    <h5> #discuss #watercooler #jokes</a> </h5>
+                                </li>
+                                <li class="list-group-item" class="d-flex justify-content-start">
+                                    <a href="https://dev.to/attainableeng/why-coaching-p67" class="btn" style="width: 100%;">Side Project Sunday! What do you have going on? 
+                                    <h5>#discuss #watercooler #showdev #sideprojects</a></h5>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+            </aside>                
+        </section>
+    </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/b40312e670.js" crossorigin="anonymous"></script>
+  <script src="/js/viewPost.js"></script>
+</body>
+<footer>
+    <h7><a class="brand__link" href="/">DEV Community</a>— A constructive and inclusive social network for software developers. With you every step of your journey.
+    Built on <a class="brand__link" href="/">Forem</a> — the <a class="brand__link" href="/">open source</a> software that powers <a class="brand__link" href="/">DEV</a> and other inclusive communities.
+    Made with love and <a class="brand__link" href="/">Ruby on Rails.</a> DEV Community © 2016 - 2022.</h7>
+    <!-- Fin Annnie -->
+</footer>
+</html>
