@@ -11,7 +11,7 @@
 
 <body>
     <div class="row bg-white">
-        <!-- Inicio Marco -->
+       
         <div class="d-flex align-items-center col-md-1 col-sm-1">
             <aside class="offcanvas-container">      
                 <nav class="navbar navbar-expand-lg navbar-light bg-transparent main-navigation" id="main-menu">
@@ -160,6 +160,7 @@
                 </nav>
             </aside>
         </div>
+        <!-- Inicia BarNav en LARGE -->
         <div class="d-flex align-items-center col-md-11 col-sm-11">
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent col-12">
                 <div class="container-fluid">
@@ -184,39 +185,126 @@
                             <a href="/" class="account__anchor-simple mb-1">Log in</a>
                         </div>
                         <div class="account__links">
-                            <a href="/" class="account__anchor mb-1">Create account</a>
+                            <a href="./editPost.html" class="account__anchor mb-1">Edit Post</a>
                         </div>
                     </div> 
                 </div>
             </nav>
-        </div>       
+        </div>
+        <!-- Fin BarNav en LARGE-->
     </div>
-    <!-- Fin Marco -->
+    
 
     <main class="container">
         <section class="row">
 
-            <aside class="col-md-4 col-lg-1 d-sm-none d-md-block">
-                <!-- Inicio Marco -->
+            <!-- Inicia Aside Izquierdo -->
+            <aside class="col-md-4 col-lg-3 d-sm-none d-md-block">
                 <div class="d-flex flex-column col-sm-12 col-md-3 navbar-container">
-                          
+                    <nav class="navbar navbar-light bg-transparent main-navigation" id="main-menu">       
+                        <div class="d-flex flex-column flex-shrink-0 bg-transparent navbar-content">        
+                            <div class="navbar__elements">
+                                <h2 class="offcanvas-subtitle">Popular Tags</h2>
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link active">
+                                            #javascript
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link active">
+                                            #webdev
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link active">
+                                            #beginners
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link active">
+                                            #programming
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link active">
+                                            #tutorial
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link active">
+                                            #react
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link active">
+                                            #python
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link active">
+                                            #productivity
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link active">
+                                            #discuss
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link active">
+                                            #css
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link active">
+                                            #career
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/" class="nav-link active">
+                                            #devops
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex justify-start mb-4 mt-4">
+                                <a href="/" class="networks-icon">
+                                    <img class="networks-icon" src="./img/twitter-icon.svg" />
+                                </a>
+                                <a href="/" class="networks-icon">
+                                    <img
+                                    class="networks-icon"
+                                    src="./img/facebook-icon.svg"
+                                    />
+                                <a href="/" class="networks-icon">
+                                    <img class="networks-icon" src="./img/github-icon.svg" />
+                                </a>
+                                <a href="/" class="networks-icon">
+                                    <img
+                                    class="networks-icon"
+                                    src="./img/instagram-icon.svg"
+                                    />
+                                </a>
+                                <a href="/" class="networks-icon">
+                                    <img class="networks-icon" src="./img/twitch-icon.svg" />
+                                </a>
+                            </div>
+                        </div>
+                    </nav>          
                 </div>
-                <!-- Fin Marco -->
-
-              
-
-
-                
             </aside>
+            <!-- Fin Aside Izquierdo -->
 
-            <div class="col-12 col-md-8 col-lg-7">
+            <!-- Inicia Centro -->
+            <div class="col-12 col-md-8 col-lg-6">
                 <!-- Mover tabs a body e incluir contenido en el mismo -->
                 <ul class="nav nav-tabs" id="postsTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="relevant-tab" data-bs-toggle="tab" data-bs-target="#relevant" type="button" role="tab" aria-controls="relevant" aria-selected="true">Create Post</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="latest-tab" data-bs-toggle="tab" data-bs-target="#latest" type="button" role="tab" aria-controls="latest" aria-selected="false">Edit</button>
+                        <button class="nav-link" id="latest-tab" data-bs-toggle="tab" data-bs-target="#latest" type="button" role="tab" aria-controls="latest" aria-selected="false" href="./editPost.html">Edit</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="top-tab" data-bs-toggle="tab" data-bs-target="#top" type="button" role="tab" aria-controls="top" aria-selected="false">Preview</button>
@@ -244,28 +332,27 @@
                   </form>
 
             </div>
+            <!-- Fin Centro -->
 
+             <!-- Inicia Aside Derecho -->
             <aside class="col-lg-3 d-none d-lg-block">
-           
                 <div class="card mb-4">
-                    <div class="card" style="width: 100%">
-                            <div class="card-body">
-                                <h6 class="card-title">Writing a Great Post Title</h6>
-                                <p>
-                                    <ul>
-                                        Think of your post title as a super short but compelling description
-                                    </ul>
-                                    <ul>
-                                        Use keywords where appropiate to help ensure people can find your post by search
-                                    </ul>
-
-                                </p>
-                            </div>
-                    </div>
+                    <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--QT745Dw1--/c_fill,f_auto,fl_progressive,h_320,q_auto,w_320/https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/1/0213bbaa-d5a1-4d25-9e7a-10c30b455af0.png">
+                    <h3>JOIN NOW TO POST</h3>
                 </div>
+
+                
+                <div class="card mb-4">
+                    <img src="https://assets-global.website-files.com/5e9aa66fd3886aa2b4ec01ca/5fd3903b41d20bd2244ec3fd_programminglanguagesstickers.jpg">
+                    <h4>Forem Android App is Here</h4>
+                </div>
+                
+
+          
+
               
-            </aside>                
-            </div>
+            </aside>
+            <!-- Inicia Aside Derecho -->
 
         </section>
     </main>
