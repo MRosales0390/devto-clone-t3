@@ -42,7 +42,6 @@ document.getElementById("save_btn").addEventListener("click", () => {
       avatarAuthor: postAvatarAuthor,
     };
 
-
     fetch("https://devto-clone-team3-default-rtdb.firebaseio.com/posts/.json", {
       method: "POST",
       body: JSON.stringify(post),
@@ -56,10 +55,19 @@ document.getElementById("save_btn").addEventListener("click", () => {
       .then((finalResponse) => {
         document.getElementById("postForm").reset();
 
-        alert(`Post registrado exitosamente con el id ${finalResponse.name}`);
+        window.location.replace(`/viewPost.html?postId=${finalResponse.name}`);
+        //alert(`Post registrado exitosamente con el id ${finalResponse.name}`);
       })
       .catch((err) => {
         console.log(err);
       });
   }
+});
+
+document.getElementById("btn_urlCoverImage").addEventListener("click", () => {
+  document.getElementById("urlCoverImage").classList.toggle("hidden");
+});
+
+document.getElementById("cancel_btn").addEventListener("click", () => {
+  window.location.pathname = `/index.html`;
 });

@@ -197,6 +197,58 @@ body {
   font-weight: 600;
 }
 
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 2px solid #d6d6d7;
+  border-radius: 5px !important;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.btn-custom-upload {
+  border: 2px solid #d6d6d7;
+  border-radius: 5px !important;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: transparent;
+  color: black;
+}
+
+.hidden {
+  display: none;
+}
+
+.big-text-input {
+  font-weight: 700;
+  font-size: xx-large;
+}
+
+.no-border-focus:focus {
+  outline: 0 !important;
+}
+
+.custom-blue-btn {
+  background-color: rgb(59, 73, 223);
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  max-width: 95px;
+  height: 40px;
+
+  &:hover {
+    background-color: rgb(47, 58, 178);
+  }
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 767px) {
   .offcanvas {

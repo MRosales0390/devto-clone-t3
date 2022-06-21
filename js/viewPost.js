@@ -70,21 +70,30 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="card mb-3">
                 <img src="${post.urlCoverImage}" class="card-img-top" alt="...">
                 <div class="card-header bg-white border-0 ms-3">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="${post.avatarAuthor}" class="rounded-circle img-thumbnail" alt="...">
-                        </div>
-                        <div class="col-10">
-                            <p class="card-text">${post.author}</p>
-                            <p class="card-text"><small class="text-muted">${printDate}</small></p>
-                        </div>
-                    </div>
+                  <div class="d-inline-flex">
+                    <span>
+                      <img src="${post.avatarAuthor}" class="rounded-circle img-thumbnail" alt="...">
+                    </span>
+                    <span class="ms-2">
+                      <p class="card-text">${post.author}</p>
+                      <p class="card-text"><small class="text-muted smaller-text">${printDate}</small></p>
+                    </span>
+                  </div>
                 </div>
                 <div class="card-body ms-3">
                     <h1 class="card-title">${post.title}</h1>
                     <p class="card-text mb-3"><small class="text-muted">${tagList}</small></p>
                     <p class="card-text">${post.content}</p>
                 </div>
+                <div class="card-footer bg-white border-0 mb-2">
+                <div class="card-text">
+                  <div class="row">
+                    <div class="col-12 text-end">
+                      <a href="/editPost.html?postId=${postId}" class="btn btn-secondary btn-save-custom">Edit Post</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
       `;
 
