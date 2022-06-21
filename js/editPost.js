@@ -62,7 +62,6 @@ document.getElementById("save_btn").addEventListener("click", () => {
       tags: postTags,
       urlCoverImage: postUrlCoverImage,
       author: postAuthor,
-      createdDate: date,
       mintoread: postMinToRead,
       avatarAuthor: postAvatarAuthor,
     };

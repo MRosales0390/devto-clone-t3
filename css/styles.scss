@@ -45,7 +45,8 @@ body {
 }
 
 .navbar__account {
-  background-color: rgb(250, 250, 250);
+  background-color: rgb(245, 245, 245);
+  color: rgb(64, 64, 64);
   box-shadow: 0 0 0 1px rgba(23, 23, 23, 0.05);
   border-radius: Max(0px, Min($radius, calc((100vw - 4px - 100%) * 9999))) /
     $radius;
@@ -63,6 +64,15 @@ body {
 
 .brand__text {
   color: #575757;
+  background-color: rgb(245, 245, 245);
+
+  &-lighter {
+    font-weight: 400 !important;
+  }
+}
+
+.text-link:hover {
+  color: blue !important;
 }
 
 .account__anchor,
@@ -121,6 +131,69 @@ body {
 
 .card-text {
   margin-bottom: 0;
+  font-weight: 600;
+}
+
+.img-thumbnail {
+  width: 100%;
+  max-width: 50px;
+  height: auto;
+  object-fit: fill;
+}
+
+.smaller-text {
+  font-weight: 400;
+  font-size: 0.775em;
+}
+
+.btn-save-custom {
+  margin-left: 0.25rem;
+  font-size: 0.775em;
+  background-color: #d6d6d7;
+  color: #3d3d3d;
+  border: 0;
+}
+
+.btn-save-custom:hover {
+  background-color: #bdbdbd;
+  color: #090909;
+}
+
+.display-grid {
+  display: grid;
+}
+.second-column-start {
+  grid-column-start: 4;
+}
+
+.input-group:focus-within {
+  border-color: #66afe9;
+  outline: 0 !important ;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.input-group:focus-within *:focus {
+  outline: 0 !important ;
+}
+
+.nobg-button {
+  background-color: transparent !important;
+  border: 0 !important;
+  font-size: large;
+  margin-bottom: 3px !important;
+  margin-top: 3px !important;
+}
+
+.nobg-button:hover {
+  color: blue !important;
+  background-color: rgb(250, 250, 250) !important;
+  border-radius: 5px;
+}
+
+.active {
   font-weight: 600;
 }
 
