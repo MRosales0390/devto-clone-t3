@@ -171,11 +171,13 @@
                             <i class="fa fa-search"></i>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <div class="input-group">
-                                <input class="form-control bg-white border border-end-0 rounded-start" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-secondary bg-white border border-start-0 rounded-end" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
+                            <div class="input-group input-group-default">
+                                <input class="form-control bg-white border border-end-0 rounded-start search-form" type="search" placeholder="Search" aria-label="Search">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-outline-secondary bg-white border border-start-0 rounded-end focusButton" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -184,7 +186,7 @@
                             <a href="/" class="account__anchor-simple mb-1">Log in</a>
                         </div>
                         <div class="account__links">
-                            <a href="/" class="account__anchor mb-1">Create account</a>
+                            <a href="/createPost.html" class="account__anchor mb-1">Create Post</a>
                         </div>
                     </div> 
                 </div>
@@ -283,7 +285,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="flex justify-start mb-4 mt-4">
+                            <div class="flex justify-start mb-1 mt-4">
                                 <a href="/" class="networks-icon">
                                     <img class="networks-icon" src="/img/twitter-icon.svg" />
                                 </a>
@@ -379,43 +381,40 @@
                 </div>
                 <!-- Fin Marco -->
 
-                <div class="card mb-4">
-                    <img src="https://assets-global.website-files.com/5e9aa66fd3886aa2b4ec01ca/5fd3903b41d20bd2244ec3fd_programminglanguagesstickers.jpg">
-                    <h4>Forem Android App Is Here</h4>
+                <div class="card mb-4 navbar__account">
+                    <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--fIs7T4ga--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://jess.forem.lol/remoteimages/uploads/articles/9ga7i09w99yubqm4fxrv.png" class="card-img-top rounded" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Calling all early-career developers & coding mentors!</h5>
+                      <p class="card-text brand__text brand__text-lighter">Join CodeNewbie Community: a supportive space for coding newbies to connect & express themselves. <b><a class="brand__link" href="/">Get in on the fun!</a></b></p>
+                    </div>
                 </div>
 
-
-                <div class="card" style="width: 100%">
+                <div class="card mb-4 navbar__account">
                     <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--dXwXyq0I--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9sbnvyv22dhhuq83lnvk.png"
-                        class="card-img-top" alt="...">
+                        class="card-img-top rounded" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Appwrite Hackathon (40)</h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item" class="d-flex justify-content-start>
+                        <li class="list-group-item brand__text brand__text-lighter d-flex justify-content-start">
                             <a href=" #" class="btn" style="width: 100%">Day 0: Brainstorming!</a>
                         </li>
-                        <li class="list-group-item" class="d-flex justify-content-start>
+                        <li class="list-group-item brand__text brand__text-lighter d-flex justify-content-start">
                             <a href=" #" class="btn" style="width: 100%;">Watery: A water delivery solution android
                             app</a>
                         </li>
-
-                        <li class="list-group-item" class="d-flex justify-content-start>
+                        <li class="list-group-item brand__text brand__text-lighter d-flex justify-content-start">
                             <a href=" #" class="btn" style="width: 100%;">[DevBook Social Medial App build with flutter
                             and appwrite]</a>
                         </li>
-                        <li class="list-group-item" class="d-flex justify-content-start>
+                        <li class="list-group-item brand__text brand__text-lighter d-flex justify-content-start">
                             <a href=" #" class="btn" style="width: 100%;">Import Csv to Appwrite Database</a>
                         </li>
-                        <li class="list-group-item" class="d-flex justify-content-start>
+                        <li class="list-group-item brand__text brand__text-lighter d-flex justify-content-start">
                             <a href=" #" class="btn" style="width: 100%;">Day 3: Still UI/bottom navigation bar
                             (custom)</a>
                         </li>
                     </ul>
-                    <div class="card-body">
-                        <a href="#" class="btn btn-primary" style="width: 100%;">Submit Your Project!</a>
-                        <a href="#" class="btn btn-secondary" style="width: 100%">Se all posts</a>
-                    </div>
                 </div>
             </aside>
 
@@ -423,13 +422,13 @@
                 <!-- Mover tabs a body e incluir contenido en el mismo -->
                 <ul class="nav nav-tabs" id="postsTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="relevant-tab" data-bs-toggle="tab" data-bs-target="#relevant" type="button" role="tab" aria-controls="relevant" aria-selected="true">Relevant</button>
+                        <button class="nav-link active nobg-button" id="relevant-tab" data-bs-toggle="tab" data-bs-target="#relevant" type="button" role="tab" aria-controls="relevant" aria-selected="true">Relevant</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="latest-tab" data-bs-toggle="tab" data-bs-target="#latest" type="button" role="tab" aria-controls="latest" aria-selected="false">Latest</button>
+                        <button class="nav-link nobg-button" id="latest-tab" data-bs-toggle="tab" data-bs-target="#latest" type="button" role="tab" aria-controls="latest" aria-selected="false">Latest</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="top-tab" data-bs-toggle="tab" data-bs-target="#top" type="button" role="tab" aria-controls="top" aria-selected="false">Top</button>
+                        <button class="nav-link nobg-button" id="top-tab" data-bs-toggle="tab" data-bs-target="#top" type="button" role="tab" aria-controls="top" aria-selected="false">Top</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="postsTabContent">
@@ -441,123 +440,71 @@
             </div>
 
 
-            <aside class="col-lg-3 d-none d-lg-block">
-                <div class="card card__annie-codeland mb-4">
-                    <div class="card" style="width: 100%">
-                        <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--jbMf-P5U--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://jess.forem.lol/remoteimg/uploads/articles/2hdqak549ex78azbqdk4.png" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">CodeLand 2022 Updates</h5>
-                            <div class="d-flex flex-column">
-                                <ul class>
-                                    <li class=""><a href="https://ti.to/codenewbie/codeland-2022" class="link-primary ">Registration - OPEN</a></li>
-                                    <li class=""><a href="https://codelandconf.com/#program" class="link-primary">Speakers - ANNOUNCED</a></li>
-                                </ul>
-                            </div>
-                        </div>
+            <aside class="col-md-4 col-lg-3 d-sm-none d-md-block mt-2">
+                <div class="card mb-4 navbar__account">
+                    <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--jbMf-P5U--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://jess.forem.lol/remoteimages/uploads/articles/2hdqak549ex78azbqdk4.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">CodeLand Keynote Speakers, Announced!</h5>
                     </div>
                 </div>
-                <div class="card card__annie-card-app mb-4">
-                    <div class="card" style="width: 100%">
-                        <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--dXwXyq0I--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9sbnvyv22dhhuq83lnvk.png"
-                        class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Appwrite Hackathon (40)</h5>
-                                <a href="https://dev.to/t/appwritehack" class="link-primary"></a>
-                            </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item" class="flex justify-content-start">
-                                        <a href="https://dev.to/ffex/day-0-brainstorming-3po" class="btn" style="width: 100">Day 0:Brainstorming!</a>
-                                    </li>
-                                    <li class="list-group-item" class="d-flex justify-content-start">
-                                        <a href="https://dev.to/joysankar2001/watery-a-water-delivery-solution-android-app-3ep9"
-                                class="btn" style="width: 100%;">Watery: A water delivery solution android app</a>
-                                    </li>
-                                    <li class="list-group-item" class="d-flex justify-content-start">
-                                        <a href="https://dev.to/b14cknc0d3/devbook-social-medial-app-build-with-flutter-and-appwrite--14jo"
-                                class="btn" style="width: 100%;">[DevBook Social Medial App build with flutter and
-                                appwrite]</a>
-                                    </li>
-                                    <li class="list-group-item" class="d-flex justify-content-start">
-                                        <a href="https://dev.to/rohitraje786/import-csv-to-appwrite-database-1h71" class="btn"
-                                style="width: 100%;">Import Csv to Appwrite Database</a>
-                                    </li>
-                                    <li class="list-group-item" class="d-flex justify-content-start">
-                                        <a href="https://dev.to/fathidevs/day-3-still-uibottom-navigation-bar-custom-m7h" class="btn"
-                                style="width: 100%;">Day 3: Still UI/bottom navigation bar(custom)</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="card-body">
-                                <a href="https://dev.to/new/appwritehack" class="btn btn-primary" style="width: 100%;">Submit Your
-                            Project!</a>
-                                <a href="https://dev.to/t/appwritehack" class="btn btn-secondary" style="width: 100%">Se all
-                            posts</a>
-                            </div>
+                <div class="card mb-4 navbar__account">
+                    <div class="card-body">
+                        <h5 class="card-title">Listings</h5>
+                        <a href="https://dev.to/listings" class="brand__link">See all</a>
                     </div>
-                </div>
-                <div class="card card__annie-card-listing mb-4">
-                    <div class="card" style="width: 100%">
-                        <div class="card-body">
-                            <h5 class="card-title">Listings</h5>
-                            <a href="https://dev.to/listings" clas="btn" style="width: 100%" card-aside-right>See all</a>
-                        </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item" class="flex justify-content-start">
-                                    <a href="https://dev.to/listings/education/recomend-typescript-books-2l90" class="btn"
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item brand__text brand__text-lighter">
+                            <a href="https://dev.to/listings/education/recomend-typescript-books-2l90" class="btn text-link"
                                 style="width: 100">Recomend Typescript books</a>
-                                </li>
-                                <li class="list-group-item" class="d-flex justify-content-start">
-                                    <a href="https://dev.to/listings/education/beginner-s-roadmap-to-web-development-1lhp"
-                                class="btn" style="width: 100%;">Begginer's Roadmap Web Development</a>
-                                </li>
-                            <li class="list-group-item" class="d-flex justify-content-start">
-                                    <a href="https://dev.to/listings/collabs/join-the-ogc-space-partitions-online-code-sprint-16il"
-                                class="btn" style="width: 100%;">Join the OGC - Space Partitions - online Code Sprint!</a>
-                                </li>
-                                <li class="list-group-item" class="d-flex justify-content-start">
-                                    <a href="https://dev.to/listings/collabs/this-week-in-react-newsletter-for-professionals-29nd"
-                                class="btn" style="width: 100%;">This Week In React: newsletter for professionals</a>
-                                </li>
-                                <li class="list-group-item" class="d-flex justify-content-start">
-                                    <a href="https://dev.to/listings/forhire/full-stack-engineer-available-for-remote-position-k4j"
-                                class="btn" style="width: 100%;">Full Stack Engineer ~ Available for remote position</a>
-                                </li>
-                            </ul>
-                    </div>
+                        </li>
+                        <li class="list-group-item brand__text brand__text-lighter">
+                            <a href="https://dev.to/listings/education/beginner-s-roadmap-to-web-development-1lhp"
+                                class="btn text-link" style="width: 100%;">Begginer's Roadmap Web Development</a>
+                        </li>
+                        <li class="list-group-item brand__text brand__text-lighter">
+                            <a href="https://dev.to/listings/collabs/join-the-ogc-space-partitions-online-code-sprint-16il"
+                                class="btn text-link" style="width: 100%;">Join the OGC - Space Partitions - online Code Sprint!</a>
+                        </li>
+                        <li class="list-group-item brand__text brand__text-lighter">
+                            <a href="https://dev.to/listings/collabs/this-week-in-react-newsletter-for-professionals-29nd"
+                                class="btn text-link" style="width: 100%;">This Week In React: newsletter for professionals</a>
+                        </li>
+                        <li class="list-group-item brand__text brand__text-lighter">
+                            <a href="https://dev.to/listings/forhire/full-stack-engineer-available-for-remote-position-k4j"
+                                class="btn text-link" style="width: 100%;">Full Stack Engineer ~ Available for remote position</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="card card__annie-card-help mb-4">
-                    <div class="card" style="width: 100%">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                                <a href="https://dev.to/t/help" class="">#help</a>
-                        </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item" class="flex justify-content-start">
-                                    <a href="https://dev.to/hugohamelcom/appsumo-keyword-ranking-tool-2mm0" class="btn"
-                                style="width: 100">AppSumo Keyword Ranking Tool</a>
-                                </li>
-                                <li class="list-group-item" class="d-flex justify-content-start">
-                                    <a href="https://dev.to/hugohamelcom/appsumo-keyword-ranking-tool-2mm0" class="btn"
-                                style="width: 100%;">Help In Getting Mapkit js or Google Map Credentials</a>
-                                </li>
-                                <li class="list-group-item" class="d-flex justify-content-start">
-                                    <a href="https://dev.to/attainableeng/why-coaching-p67" class="btn" style="width: 100%;">Why
-                                coaching?</a>
-                                </li>
-                                <li class="list-group-item" class="d-flex justify-content-start">
-                                    <a href="https://dev.to/coderlifeisawesome/cant-connect-bluetooth-neckband-in-ubuntu-2204-36jn"
-                                class="btn" style="width: 100%;">Can't connect Bluetooth neckband in Ubuntu 22.04.</a>
-                                </li>
-                                <li class="list-group-item" class="d-flex justify-content-start">
-                                    <a href="https://dev.to/ivkemilioner/i-get-err-mongoinvalidargumenterror-collection-name-must-be-a-string-44e6;"
-                                class="btn" style="width: 100%;">I get err MongoInvalidArgumentError: Collection name must
-                                be String</a>
-                                </li>
-                            </ul>
+                <div class="card mb-4 navbar__account">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="https://dev.to/listings" class="brand__link">#help</a>
+                        </h5>
                     </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item brand__text brand__text-lighter text-start">
+                            <a href="https://dev.to/listings/education/recomend-typescript-books-2l90" class="btn text-link"
+                                >Recomend Typescript books</a>
+                        </li>
+                        <li class="list-group-item brand__text brand__text-lighter d-flex justify-content-start">
+                            <a href="https://dev.to/listings/education/beginner-s-roadmap-to-web-development-1lhp"
+                                class="btn text-link">Begginer's Roadmap Web Development</a>
+                        </li>
+                        <li class="list-group-item brand__text brand__text-lighter d-flex justify-content-start">
+                            <a href="https://dev.to/listings/collabs/join-the-ogc-space-partitions-online-code-sprint-16il"
+                                class="btn text-link">Join the OGC - Space Partitions - online Code Sprint!</a>
+                        </li>
+                        <li class="list-group-item brand__text brand__text-lighter d-flex justify-content-start">
+                            <a href="https://dev.to/listings/collabs/this-week-in-react-newsletter-for-professionals-29nd"
+                                class="btn text-link">This Week In React: newsletter for professionals</a>
+                        </li>
+                        <li class="list-group-item brand__text brand__text-lighter d-flex justify-content-start">
+                            <a href="https://dev.to/listings/forhire/full-stack-engineer-available-for-remote-position-k4j"
+                                class="btn text-link">Full Stack Engineer ~ Available for remote position</a>
+                        </li>
+                    </ul>
                 </div>
             </aside>                
-            </div>
         </section>
     </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
