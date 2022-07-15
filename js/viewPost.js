@@ -11,62 +11,63 @@ let post = {
 }
 */
 const getFormattedDate = (postOriginalDate) => {
-  let currentDate = new Date();
-  let postDate = new Date(postOriginalDate);
+  let currentDate = new Date()
+  let postDate = new Date(postOriginalDate)
   //let monthShortNameList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-  let printDate = "";
+  let printDate = ""
 
   printDate = `Posted on ${postDate.getDate()} ${postDate
     .toLocaleString("en-US", {
-      month: "short",
+      month: "short"
     })
-    .toLowerCase()}`;
+    .toLowerCase()}`
 
-  return printDate;
-};
+  return printDate
+}
 
 const getTagsList = (listOfTags) => {
-  let formattedTags = "";
-  if (getTagsList) {
-    let tagsArray = listOfTags.split(",");
+  let formattedTags = ""
+  if (listOfTags) {
+    //let tagsArray = listOfTags.split(",")
 
-    formattedTags = tagsArray.reduce((tagsList, currentTag) => {
-      tagsList += `#${currentTag} `;
+    formattedTags = listOfTags.reduce((tagsList, currentTag) => {
+      tagsList += `#${currentTag} `
 
-      return tagsList;
-    }, "");
+      return tagsList
+    }, "")
   }
 
-  return formattedTags;
-};
+  return formattedTags
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-  let postId = window.location.search.substring(8);
-  let postUrl = `https://devto-clone-team3-default-rtdb.firebaseio.com/posts/${postId}.json`;
+  const postId = window.location.search.substring(8)
+  const postUrl = `http://localhost:8080/post/${postId}`
 
   fetch(postUrl, {
     method: "GET",
     headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
+      "Content-type": "application/json; charset=UTF-8"
+    }
   })
     .then((response) => {
       if (!response.ok) {
         let err = new Error(
           `Algo salio mal, status: ${response.status} ${response.statusText} type: ${response.type}`
-        );
-        throw err;
+        )
+        throw err
       } else {
-        return response.json();
+        return response.json()
       }
     })
-    .then((post) => {
-      let postsLayout = "";
-      let relevantPostsSection = document.getElementById("postBody");
-      let printDate = getFormattedDate(post.createdDate);
-      let tagList = getTagsList(post.tags);
+    .then((postObject) => {
+      const post = postObject.data.getPost
+      //const postsLayout = ""
+      const relevantPostsSection = document.getElementById("postBody")
+      const printDate = getFormattedDate(post.createdDate)
+      const tagList = getTagsList(post.tags)
 
-      postsLayout = `
+      const postsLayout = `
             <div class="card mb-3">
                 <img src="${post.urlCoverImage}" class="card-img-top" alt="...">
                 <div class="card-header bg-white border-0 ms-3">
@@ -95,11 +96,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
               </div>
             </div>
-      `;
+      `
 
-      relevantPostsSection.innerHTML = postsLayout;
+      relevantPostsSection.innerHTML = postsLayout
     })
     .catch((err) => {
-      console.log(err);
-    });
-});
+      console.log(err)
+    })
+})
