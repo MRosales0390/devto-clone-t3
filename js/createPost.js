@@ -55,7 +55,10 @@ document.getElementById("save_btn").addEventListener("click", () => {
       })
       .then((finalResponse) => {
         document.getElementById("postForm").reset()
-        window.location.replace(`/viewPost.html?postId=${finalResponse.name}`)
+        //console.log(finalResponse.data.createdPost._id)
+        window.location.replace(
+          `/viewPost.html?postId=${finalResponse.data.createdPost._id}`
+        )
         //alert(`Post registrado exitosamente con el id ${finalResponse.name}`);
       })
       .catch((err) => {
