@@ -41,7 +41,6 @@ const getFormattedDate = (postOriginalDate) => {
 }
 
 const getTagsList = (listOfTags) => {
-  console.log(listOfTags)
   let formattedTags = ""
   if (listOfTags) {
     //let tagsArray = listOfTags.split(",")
@@ -111,50 +110,43 @@ const getCardTemplate = (post, currentId = 0, includeImageOnHeader = false) => {
   return postLayout
 }
 
-const getPosts = (filter = "") => {
-  return new Promise(function (resolve, reject) {
-    fetch(server_url, {
+const getPosts = async (filter = "") => {
+  try {
+    const response = await fetch(server_url, {
       method: "GET",
+      mode: "cors",
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
     })
-      .then((response) => {
-        if (!response.ok) {
-          let err = new Error(
-            `Algo salio mal, status: ${response.status} ${response.statusText} type: ${response.type}`
-          )
-          throw err
-        } else {
-          return response.json()
-        }
+
+    const jsonObject = await response.json()
+    const posts = jsonObject.data.getPosts
+
+    let postsLayout = ""
+    let firstPost = true
+
+    if (filter === "") {
+      posts.forEach((post) => {
+        postsLayout += getCardTemplate(post, post._id, firstPost)
+        firstPost = false
       })
-      .then((posts) => {
-        let postsLayout = ""
-        let firstPost = true
-        let topPosts = {}
-
-        if (filter === "") {
-          topPosts = posts
-        } else {
-          topPosts = Object.fromEntries(
-            Object.entries(posts).filter(([key, value]) => {
-              return value.tags.replaceAll(" ", "").split(",").includes(filter)
-            })
+    } else {
+      posts
+        .filter((post) =>
+          post.tags.find(
+            (tag) => tag.trim().toLowerCase() === filter.toLowerCase()
           )
-        }
-
-        for (post in topPosts) {
-          postsLayout += getCardTemplate(posts[post], post, firstPost)
+        )
+        .forEach((post) => {
+          postsLayout += getCardTemplate(post, post._id, firstPost)
           firstPost = false
-        }
-
-        resolve(postsLayout)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  })
+        })
+    }
+    return postsLayout
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -169,13 +161,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const jsonObject = await response.json()
     const posts = jsonObject.data.getPosts
-    console.log(posts)
 
     let postsLayout = ""
     let relevantPostsSection = document.getElementById("relevant")
     let firstPost = true
 
-    posts.forEach((post, index) => {
+    posts.forEach((post) => {
       postsLayout += getCardTemplate(post, post._id, firstPost)
       firstPost = false
     })
@@ -188,18 +179,26 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 document
   .querySelector("#top-tab")
-  .addEventListener("shown.bs.tab", function () {
-    let topPostsSection = document.getElementById("top")
-    let test = getPosts("top").then(
-      (response) => (topPostsSection.innerHTML = response)
-    )
+  .addEventListener("shown.bs.tab", async () => {
+    try {
+      let topPostsSection = document.getElementById("top")
+      const test = await getPosts("top")
+
+      topPostsSection.innerHTML = test
+    } catch (error) {
+      console.log(error)
+    }
   })
 
 document
   .querySelector("#latest-tab")
-  .addEventListener("shown.bs.tab", function () {
-    let topPostsSection = document.getElementById("latest")
-    let test = getPosts("latest").then(
-      (response) => (topPostsSection.innerHTML = response)
-    )
+  .addEventListener("shown.bs.tab", async () => {
+    try {
+      let latestPostsSection = document.getElementById("latest")
+      const test = await getPosts("latest")
+
+      latestPostsSection.innerHTML = test
+    } catch (error) {
+      console.log(error)
+    }
   })
