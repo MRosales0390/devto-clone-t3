@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="card-header bg-white border-0 ms-3">
                   <div class="d-inline-flex">
                     <span>
-                      <img src="${post.avatarAuthor}" class="rounded-circle img-thumbnail" alt="...">
+                      <img src="${post.authorAvatar}" class="rounded-circle img-thumbnail" alt="...">
                     </span>
                     <span class="ms-2">
                       <p class="card-text">${post.author}</p>

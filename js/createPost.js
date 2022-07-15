@@ -39,9 +39,10 @@ document.getElementById("save_btn").addEventListener("click", () => {
       urlCoverImage: postUrlCoverImage,
       author: postAuthor,
       //createdDate: date,
-      mintoread: postMinToRead,
+      minToRead: postMinToRead,
       authorAvatar: postAvatarAuthor
     }
+    console.log(post)
 
     fetch(server_url, {
       method: "POST",

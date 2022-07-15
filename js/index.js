@@ -70,7 +70,7 @@ const getCardTemplate = (post, currentId = 0, includeImageOnHeader = false) => {
               <div class="d-inline-flex">
                 <span>
                   <img src="${
-                    post.avatarAuthor
+                    post.authorAvatar
                   }" class="rounded-circle img-thumbnail" alt="...">
                 </span>
                 <span class="ms-2">
@@ -97,7 +97,7 @@ const getCardTemplate = (post, currentId = 0, includeImageOnHeader = false) => {
                 </div>
                 <div class="col-5 text-end">
                   <small class="text-muted smaller-text">${
-                    post.mintoread
+                    post.minToRead
                   } min read</small>
                   <button type="button" class="btn btn-secondary btn-save-custom">Save</button>
                 </div>
