@@ -294,3 +294,42 @@ input[type="file"] {
     margin-right: 0.5rem;
   }
 }
+
+
+
+//sass Paco
+.login-title{
+  font-weight: 800;
+}
+
+#email-box{
+  margin-top: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+  text-align: center;
+}
+.login-message{
+  font-weight: 400;
+}
+#label{
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+
+#inputpass{
+  margin-bottom: 1.5rem;
+}
+
+.login-box{
+  padding: .5rem;
+}
+#login-btn{
+  background-color: rgb(50, 50, 214);
+transition: all 0.5s ease;
+}
+#login-btn:hover{
+background-color: rgb(0, 0, 160);
+}
