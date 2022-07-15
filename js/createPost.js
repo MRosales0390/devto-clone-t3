@@ -1,7 +1,7 @@
 document.getElementById("save_btn").addEventListener("click", () => {
   const server_url = "http://localhost:8080/createPost"
   let postTitle = document.getElementById("title").value
-  let postContent = document.getElementById("content").value
+  let postContent = document.getElementById("content").value.replaceAll('"', "")
   let postTags = document.getElementById("tags").value
   let postUrlCoverImage = document.getElementById("urlCoverImage").value
   let postAuthor = document.getElementById("author").value

@@ -127,7 +127,7 @@ const getPosts = async (filter = "") => {
     let firstPost = true
 
     if (filter === "") {
-      posts.forEach((post) => {
+      posts.reverse().forEach((post) => {
         postsLayout += getCardTemplate(post, post._id, firstPost)
         firstPost = false
       })
@@ -138,6 +138,7 @@ const getPosts = async (filter = "") => {
             (tag) => tag.trim().toLowerCase() === filter.toLowerCase()
           )
         )
+        .reverse()
         .forEach((post) => {
           postsLayout += getCardTemplate(post, post._id, firstPost)
           firstPost = false
@@ -166,7 +167,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let relevantPostsSection = document.getElementById("relevant")
     let firstPost = true
 
-    posts.forEach((post) => {
+    posts.reverse().forEach((post) => {
       postsLayout += getCardTemplate(post, post._id, firstPost)
       firstPost = false
     })
