@@ -1,11 +1,12 @@
 document.getElementById("save_btn").addEventListener("click", () => {
-  let postTitle = document.getElementById("title").value;
-  let postContent = document.getElementById("content").value;
-  let postTags = document.getElementById("tags").value;
-  let postUrlCoverImage = document.getElementById("urlCoverImage").value;
-  let postAuthor = document.getElementById("author").value;
-  let postMinToRead = document.getElementById("minToRead").value;
-  let postAvatarAuthor = document.getElementById("avatarAuthor").value;
+  const server_url = "http://localhost:8080/createPost"
+  let postTitle = document.getElementById("title").value
+  let postContent = document.getElementById("content").value
+  let postTags = document.getElementById("tags").value
+  let postUrlCoverImage = document.getElementById("urlCoverImage").value
+  let postAuthor = document.getElementById("author").value
+  let postMinToRead = document.getElementById("minToRead").value
+  let postAvatarAuthor = document.getElementById("avatarAuthor").value
 
   if (
     postTitle === "" ||
@@ -17,9 +18,9 @@ document.getElementById("save_btn").addEventListener("click", () => {
     postAvatarAuthor === "" ||
     isNaN(postMinToRead)
   ) {
-    alert("Hay campos vacíos ó erróneos, favor de revisar.");
+    alert("Hay campos vacíos ó erróneos, favor de revisar.")
   } else {
-    let today = new Date();
+    let today = new Date()
     let date =
       today.getFullYear() +
       "-" +
@@ -29,45 +30,44 @@ document.getElementById("save_btn").addEventListener("click", () => {
       " " +
       today.getHours() +
       ":" +
-      today.getMinutes();
+      today.getMinutes()
 
     let post = {
       title: postTitle,
       content: postContent,
-      tags: postTags,
+      tags: postTags.split(","),
       urlCoverImage: postUrlCoverImage,
       author: postAuthor,
-      createdDate: date,
+      //createdDate: date,
       mintoread: postMinToRead,
-      avatarAuthor: postAvatarAuthor,
-    };
+      authorAvatar: postAvatarAuthor
+    }
 
-    fetch("https://devto-clone-team3-default-rtdb.firebaseio.com/posts/.json", {
+    fetch(server_url, {
       method: "POST",
       body: JSON.stringify(post),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
+        "Content-Type": "application/json; charset=UTF-8"
+      }
     })
       .then((response) => {
-        return response.json();
+        return response.json()
       })
       .then((finalResponse) => {
-        document.getElementById("postForm").reset();
-
-        window.location.replace(`/viewPost.html?postId=${finalResponse.name}`);
+        document.getElementById("postForm").reset()
+        window.location.replace(`/viewPost.html?postId=${finalResponse.name}`)
         //alert(`Post registrado exitosamente con el id ${finalResponse.name}`);
       })
       .catch((err) => {
-        console.log(err);
-      });
+        console.log(err)
+      })
   }
-});
+})
 
 document.getElementById("btn_urlCoverImage").addEventListener("click", () => {
-  document.getElementById("urlCoverImage").classList.toggle("hidden");
-});
+  document.getElementById("urlCoverImage").classList.toggle("hidden")
+})
 
 document.getElementById("cancel_btn").addEventListener("click", () => {
-  window.location.pathname = `/index.html`;
-});
+  window.location.pathname = `/index.html`
+})
